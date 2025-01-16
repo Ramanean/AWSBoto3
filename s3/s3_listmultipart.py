@@ -11,5 +11,6 @@ bucketname=sys.argv[3]
 session=boto3_session(accesskey,secretaccesskey)
 s3_client=session.client('s3')
 
-s3_client.list_multipart_uploads(Bucket="xxxx")
+data=s3_client.list_multipart_uploads(Bucket="xxxx")
+print (data)
 
