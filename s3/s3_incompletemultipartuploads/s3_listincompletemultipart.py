@@ -53,6 +53,7 @@ while True:
             NextKeyMarker=response['NextKeyMarker']
             i=i+1
             if i<=pages:
+                #Getting details of S3 Incomplete Multipart Upload
                 for row in incompleteuploads:
                     #There are also other fiels that can be returned in responses
                     initator=incompleteuploads['Initiator']['ID']
@@ -77,7 +78,7 @@ while True:
         except Exception as error:
             headers=['Initiator','PartName','Date']
 
-            #Writing to CSV
+            #Writing to CSV with InComplete Multipart Upload Details
             with open(csvname,'w',newline='') as csvfile:
                 filewriter=csv.writer(csvfile,delimiter=',')
                 
